@@ -1,0 +1,19 @@
+{
+  "name": "first-vue-webpack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "dev": "webpack-dev-server --open --hot",
+    "build":"webpack --mode production --progress --hide-modules"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "webpack": "^4.42.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  }
+}
