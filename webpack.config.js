@@ -13,22 +13,38 @@ module.exports = {
 
   //add loaders for vue/css/js files
   module: {
-      //loaders
     rules: [
-      { test: /\.vue$/, loader: "vue-loader" },
       {
-        test: /\.(scss|css)$/,
-        loader: ["vue-style-loader", "css-loader", "sass-loader"]
+        test: /\.vue$/,
+        loader: "vue-loader"
       },
-      { test: /\.js$/, loader: "babel.loader", exclude: /node_modules/ }
-    ],
-    //easier install vue components
-    resolve: {
-      alias: {
-        vue$: "vue/dist/vue.esm.js"
+      {
+        test:/\.css$/,
+        use:['vue-style-loader','css-loader']
       },
-      extensions: ["*", ".js", ".vue", ".json"]
+      {
+        test: /\.s[ac]ss$/i,
+        use: [
+          // Creates `style` nodes from JS strings
+          'style-loader',
+          // Translates CSS into CommonJS
+          'css-loader',
+          // Compiles Sass to CSS
+          'sass-loader',
+        ],
+      },
+      {
+        test: /\.js$/,
+        loader: "babel-loader",
+        exclude: /node_modules/
+      }
+    ]
+  },
+  resolve: {
+    alias: {
+      vue$: "vue/dist/vue.esm.js"
     },
-    plugins: [VueLoaderPlugin()]
-  }
+    extensions: ["*", ".js", ".vue", ".json"]
+  },
+  plugins: [new VueLoaderPlugin()]
 };

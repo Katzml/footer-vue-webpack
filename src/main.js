@@ -1,3 +1,10 @@
-console.log("helou with webpack 2");
+import Vue from 'vue';
+import App from './App';
 
-document.write(`<h1>Un titulo</h1>`)
+ 
+new Vue({
+    el:"#app",
+    render: h=>h(App)
+});
+
+Vue.use()
